@@ -1,0 +1,41 @@
+Private Sub SpinButton1_SpinUp()
+    If Val(Label1.Caption) <> 0 Then
+        Dim newValue As Long
+        newValue = Val(Label1.Caption) + 5
+        If newValue <= 250 Then
+            Label1.Caption = newValue
+        Else
+            MsgBox "Value exceeds the maximum limit of 250.", vbExclamation
+        End If
+    Else
+        MsgBox "Please enter a number first.", vbExclamation
+    End If
+End Sub
+
+Private Sub SpinButton1_SpinDown()
+    If Val(Label1.Caption) <> 0 Then
+        Dim newValue As Long
+        newValue = Val(Label1.Caption) - 5
+        If newValue >= -50 Then
+            Label1.Caption = newValue
+        Else
+            MsgBox "Value exceeds the minimum limit of -50.", vbExclamation
+        End If
+    Else
+        MsgBox "Please enter a number first.", vbExclamation
+    End If
+End Sub
+
+Private Sub CommandButton1_Click()
+    Dim userInput As Variant
+    userInput = InputBox("Enter a number:")
+    If IsNumeric(userInput) Then
+        Label1.Caption = userInput
+    Else
+        MsgBox "Invalid input. Please enter a valid number.", vbExclamation
+    End If
+End Sub
+
+Private Sub CommandButton2_Click()
+    Label1.Caption = "Number"
+End Sub
